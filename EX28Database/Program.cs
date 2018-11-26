@@ -9,15 +9,27 @@ namespace EX28Database
 {
     class Program
     {
-        private static string connectionString = "Server =[server_name];Database =[database_name];Trusted_Connection = True";
+       // private static string connectionString = "Server =[server_name];Database =[database_name];Trusted_Connection = True";
         static void Main(string[] args)
         {
-            Program prog = new EX28Database.Program();
-            prog.Run();
+            //Program prog = new EX28Database.Program();
+            //prog.Run();
+        }
+        private static void CreateCommand(string queryString,
+    string connectionString)
+        {
+            using (SqlConnection connection = new SqlConnection(
+                       connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                command.Connection.Open();
+
+                command.ExecuteNonQuery();
+            }
         }
         private void Run()
         {
-            using (SqlConnection con = new SqlConnection(connectionString)) {
+            /*using (SqlConnection con = new SqlConnection(connectionString)) {
                 try
                 {
                     con.Open();
@@ -27,7 +39,7 @@ namespace EX28Database
                
             }
                     
-                }
+                }*/
 
     }
 }
