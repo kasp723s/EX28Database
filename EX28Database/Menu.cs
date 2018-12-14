@@ -12,7 +12,7 @@ namespace EX28Database
         {
             Console.WriteLine("hej");
 
-            return 
+            return null;
         }
     }
 }
